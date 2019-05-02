@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace Sololearn
+﻿namespace Sololearn
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Demonstrator.RunDemonstrations();
         }
     }
 }
