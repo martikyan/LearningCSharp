@@ -2,7 +2,7 @@
 
 namespace LearningCSharp.Lessons
 {
-    public class InterviewLesson
+    public class InterviewBoxing
     {
         [Demo]
         public static void BoxingAndPolymorphism()
