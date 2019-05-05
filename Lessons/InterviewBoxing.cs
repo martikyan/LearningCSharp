@@ -5,30 +5,30 @@ namespace LearningCSharp.Lessons
     public class InterviewBoxing
     {
         [Demo]
-        public static void BoxingAndPolymorphism()
+        public static void ChangingBoxedValueFails()
         {
             Point point = new Point();
-            Console.WriteLine(point); // Point.ToString(), (0, 0)
+            Console.WriteLine(point); // Point.ToString() -> (0, 0)
 
             point.Change(1, 5);
             Object boxedPoint = point;
-            Console.WriteLine(boxedPoint); // Point.ToString(), (1, 5)
+            Console.WriteLine(boxedPoint); // Point.ToString() -> (1, 5)
 
             ((Point)boxedPoint).Change(2, 3);
-            Console.WriteLine(point); // Point.ToString(), (1, 5)
-            Console.WriteLine(boxedPoint); // Point.ToString(), (1, 5)
+            Console.WriteLine(point); // Point.ToString() -> (1, 5)
+            Console.WriteLine(boxedPoint); // Point.ToString() -> (1, 5)
         }
 
         [Demo]
-        public static void ChangingBoxedValue()
+        public static void ChangingBoxedValueUsingInterfaceSucceeds()
         {
             Point point = new Point(1, 2);
             Object boxedPoint = point;
 
             ((IChangeable)boxedPoint).Change(3, 4);
 
-            Console.WriteLine(point); // Point.ToString(), (1, 2)
-            Console.WriteLine(boxedPoint); // Point.ToString(), (3, 4)
+            Console.WriteLine(point); // Point.ToString() -> (1, 2)
+            Console.WriteLine(boxedPoint); // Point.ToString() -> (3, 4)
         }
 
         private struct Point : IChangeable
@@ -49,7 +49,7 @@ namespace LearningCSharp.Lessons
 
             public override string ToString()
             {
-                return $"({x}, {y})";
+                return $"Point.ToString() -> ({x}, {y})";
             }
         }
 
