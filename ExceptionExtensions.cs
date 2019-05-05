@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace LearningCSharp
 {
@@ -6,7 +7,11 @@ namespace LearningCSharp
     {
         public static void ShowException(this Exception e)
         {
-            if (e is AggregateException aggregateException)
+            if (e is TargetInvocationException invocationException)
+            {
+                invocationException.InnerException.ShowException();
+            }
+            else if (e is AggregateException aggregateException)
             {
                 foreach (var innerException in aggregateException.InnerExceptions)
                 {
@@ -15,7 +20,7 @@ namespace LearningCSharp
             }
             else
             {
-                Console.WriteLine($"Exception of type {e.GetType().Name} has thrown with message {e.Message}");
+                Console.WriteLine($"Exception of type {e.GetType().Name} has been thrown with the following message: {e.Message}");
             }
         }
     }
