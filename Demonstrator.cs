@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 
@@ -26,7 +25,6 @@ namespace LearningCSharp
                 Console.WriteLine($"***** Name: {_methodInfos[i].Name} ******\n");
                 try
                 {
-                    Debugger.Break();
                     _methodInfos[i].Invoke(null, null);
                 }
                 catch (Exception e)
