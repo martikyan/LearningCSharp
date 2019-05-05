@@ -15,7 +15,7 @@ namespace Sololearn
             }
             else
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine($"Exception of type {e.GetType().Name} has thrown with message {e.Message}");
             }
         }
     }

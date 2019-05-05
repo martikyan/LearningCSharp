@@ -1,31 +1,32 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
 
 namespace Sololearn
 {
     public static class Demonstrator
     {
-        public delegate void Demonstrate();
-        public static readonly Demonstrate Demonstrations;
+        private static MethodInfo[] _methodInfos;
 
         static Demonstrator()
         {
-            Demonstrations += ListInsertFailure.Demonstrate;
+            var methods = Assembly.GetExecutingAssembly().GetTypes()
+                .SelectMany(t => t.GetMethods(BindingFlags.Public | BindingFlags.Static))
+                .Where(m => m.GetCustomAttributes(typeof(DemoAttribute)).Count() > 0);
+
+            _methodInfos = methods.ToArray();
         }
 
         public static void RunDemonstrations()
         {
-            var delegates = Demonstrations.GetInvocationList();
-
-            for (int i = 0; i < delegates.Length; i++)
+            for (int i = 0; i < _methodInfos.Length; i++)
             {
-                Console.WriteLine($"***** Name: {delegates[i].Method.DeclaringType} ******\n");
-                var demo = (Demonstrate)delegates[i];
-
+                Console.WriteLine($"***** Name: {_methodInfos[i].Name} ******\n");
                 try
                 {
                     Debugger.Break();
-                    demo();
+                    _methodInfos[i].Invoke(null, null);
                 }
                 catch (Exception e)
                 {
@@ -33,7 +34,7 @@ namespace Sololearn
                 }
                 finally
                 {
-                    Console.WriteLine($"\n***** Done: {delegates[i].Method.DeclaringType} ******");
+                    Console.WriteLine($"\n***** Done: {_methodInfos[i].Name} ******\n");
                     Debugger.Break();
                 }
             }
