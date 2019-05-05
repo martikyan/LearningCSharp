@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace LearningCSharp
 {
-    public static class SololearnFailures
+    public static class SololearnLessons
     {
         [Demo]
         public static void EnumerableAggregate()

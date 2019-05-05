@@ -1,6 +1,6 @@
 ﻿namespace LearningCSharp
 {
-    public class Program
+    public class Init
     {
         public static void Main(string[] args)
         {
