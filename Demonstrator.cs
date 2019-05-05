@@ -36,7 +36,6 @@ namespace LearningCSharp
                 finally
                 {
                     Console.WriteLine($"\n***** Done: {_methodInfos[i].Name} ******\n");
-                    Debugger.Break();
                 }
             }
         }
