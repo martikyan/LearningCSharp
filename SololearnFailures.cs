@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Sololearn
+namespace LearningCSharp
 {
     public static class SololearnFailures
     {

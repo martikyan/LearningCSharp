@@ -1,4 +1,4 @@
-﻿namespace Sololearn
+﻿namespace LearningCSharp
 {
     public class Program
     {

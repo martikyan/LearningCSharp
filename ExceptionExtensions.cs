@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sololearn
+namespace LearningCSharp
 {
     public static class ExceptionExtensions
     {

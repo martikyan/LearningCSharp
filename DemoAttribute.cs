@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sololearn
+namespace LearningCSharp
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
     public class DemoAttribute : Attribute
