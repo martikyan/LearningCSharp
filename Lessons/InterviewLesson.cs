@@ -25,7 +25,7 @@ namespace LearningCSharp.Lessons
             Point point = new Point(1, 2);
             Object boxedPoint = point;
 
-            ((IChangeable)boxedPoint).Change(4, 5);
+            ((IChangeable)boxedPoint).Change(3, 4);
 
             Console.WriteLine(point); // Point.ToString(), (1, 2)
             Console.WriteLine(boxedPoint); // Point.ToString(), (3, 4)
