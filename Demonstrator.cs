@@ -8,11 +8,12 @@ namespace LearningCSharp
     public static class Demonstrator
     {
         private static MethodInfo[] _methodInfos;
+        private const BindingFlags _bindingFlags = BindingFlags.Public | BindingFlags.Static;
 
         static Demonstrator()
         {
             var methods = Assembly.GetExecutingAssembly().GetTypes()
-                .SelectMany(t => t.GetMethods(BindingFlags.Public | BindingFlags.Static))
+                .SelectMany(t => t.GetMethods(_bindingFlags))
                 .Where(m => m.GetCustomAttributes(typeof(DemoAttribute)).Count() > 0);
 
             _methodInfos = methods.ToArray();
