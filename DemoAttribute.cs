@@ -2,7 +2,7 @@
 
 namespace LearningCSharp
 {
-    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+    [AttributeUsage(AttributeTargets.Method)]
     public class DemoAttribute : Attribute
     {
     }
