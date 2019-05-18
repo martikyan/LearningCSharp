@@ -29,10 +29,10 @@ namespace LearningCSharp.Lessons
         {
             Console.WriteLine("Rounding i. e. casting to int!");
 
-            Console.WriteLine($"Rounded 1.1 = {(int) 1.1}");
-            Console.WriteLine($"Rounded 1.9 = {(int) 1.9}");
-            Console.WriteLine($"Rounded -1.1 = {(int) -1.1}");
-            Console.WriteLine($"Rounded -1.9 = {(int) -1.9}");
+            Console.WriteLine($"Rounded 1.1 = {(int)1.1}");
+            Console.WriteLine($"Rounded 1.9 = {(int)1.9}");
+            Console.WriteLine($"Rounded -1.1 = {(int)-1.1}");
+            Console.WriteLine($"Rounded -1.9 = {(int)-1.9}");
             Console.WriteLine("Always rounding to zero.");
         }
     }

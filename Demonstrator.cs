@@ -6,7 +6,7 @@ namespace LearningCSharp
 {
     public static class Demonstrator
     {
-        private static MethodInfo[] _methodInfos;
+        private static Menu _menu;
         private const BindingFlags _bindingFlags = BindingFlags.Public | BindingFlags.Static;
 
         static Demonstrator()
@@ -15,25 +15,31 @@ namespace LearningCSharp
                 .SelectMany(t => t.GetMethods(_bindingFlags))
                 .Where(m => m.GetCustomAttributes(typeof(DemoAttribute)).Count() > 0);
 
-            _methodInfos = methods.ToArray();
+            _menu = new Menu(methods.ToArray());
         }
 
         public static void RunDemonstrations()
         {
-            for (int i = 0; i < _methodInfos.Length; i++)
+            while (true)
             {
-                Console.WriteLine($"***** Name: {_methodInfos[i].Name} ******\n");
+                _menu.ShowMenu();
+                var methodInfo = _menu.Select();
+
+                Console.WriteLine($"***** Name: {methodInfo.Name} ******\n");
                 try
                 {
-                    _methodInfos[i].Invoke(null, null);
+                    methodInfo.Invoke(null, null);
                 }
                 catch (Exception e)
                 {
                     e.ShowException();
                 }
-                finally
+
+                Console.WriteLine($"\n***** Done: {methodInfo.Name} ******\n");
+                var quit = Console.ReadKey();
+                if (quit.Key == ConsoleKey.Q)
                 {
-                    Console.WriteLine($"\n***** Done: {_methodInfos[i].Name} ******\n");
+                    break;
                 }
             }
         }

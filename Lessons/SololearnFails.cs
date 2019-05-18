@@ -56,6 +56,7 @@ namespace LearningCSharp.Lessons
         {
             // Assignment takes place in order.
             private static int a = b++;
+
             private static int b = ++c;
             private static int c = 3;
 
