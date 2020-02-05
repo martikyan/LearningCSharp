@@ -7,20 +7,23 @@ namespace LearningCSharp
     {
         public static void ShowException(this Exception e)
         {
-            if (e is TargetInvocationException invocationException)
+            switch (e)
             {
-                invocationException.InnerException.ShowException();
-            }
-            else if (e is AggregateException aggregateException)
-            {
-                foreach (var innerException in aggregateException.InnerExceptions)
+                case TargetInvocationException invocationException:
+                    invocationException.InnerException.ShowException();
+                    break;
+                case AggregateException aggregateException:
                 {
-                    innerException.ShowException();
+                    foreach (var innerException in aggregateException.InnerExceptions)
+                    {
+                        innerException.ShowException();
+                    }
+
+                    break;
                 }
-            }
-            else
-            {
-                Console.WriteLine($"Exception of type {e.GetType().Name} has been thrown with the following message: {e.Message}");
+                default:
+                    Console.WriteLine($"Exception of type {e.GetType().Name} has been thrown with the following message: {e.Message}");
+                    break;
             }
         }
     }
