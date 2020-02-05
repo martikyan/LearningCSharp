@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 
 namespace LearningCSharp
 {
@@ -13,34 +14,36 @@ namespace LearningCSharp
         {
             var methods = Assembly.GetExecutingAssembly().GetTypes()
                 .SelectMany(t => t.GetMethods(_bindingFlags))
-                .Where(m => m.GetCustomAttributes(typeof(DemoAttribute)).Count() > 0);
+                .Where(m => m.GetCustomAttributes(typeof(DemoAttribute)).Any());
 
             _menu = new Menu(methods.ToArray());
         }
 
         public static void RunDemonstrations()
         {
-            while (true)
+            _menu.ShowMenu();
+            var methodInfo = _menu.Select();
+
+            Console.WriteLine($"***** Name: {methodInfo.Name} ******\n");
+            try
             {
-                _menu.ShowMenu();
-                var methodInfo = _menu.Select();
+                methodInfo.Invoke(null, null);
+            }
+            catch (Exception e)
+            {
+                e.ShowException();
+            }
 
-                Console.WriteLine($"***** Name: {methodInfo.Name} ******\n");
-                try
-                {
-                    methodInfo.Invoke(null, null);
-                }
-                catch (Exception e)
-                {
-                    e.ShowException();
-                }
-
-                Console.WriteLine($"\n***** Done: {methodInfo.Name} ******\n");
-                var quit = Console.ReadKey();
-                if (quit.Key == ConsoleKey.Q)
-                {
-                    break;
-                }
+            Console.WriteLine($"\n***** Done: {methodInfo.Name} ******\n");
+            
+            var quit = Console.ReadKey();
+            if (quit.Key == ConsoleKey.Q)
+            {
+                System.Environment.Exit(0);
+            }
+            else
+            {
+                RunDemonstrations();
             }
         }
     }

@@ -22,20 +22,18 @@ namespace LearningCSharp
 
         public MethodInfo Select()
         {
-            while (true)
+            try
             {
-                try
-                {
-                    var num = Convert.ToInt32(Console.ReadLine());
-                    if (num > _methods.Length)
-                        throw new ArgumentOutOfRangeException();
+                var num = Convert.ToInt32(Console.ReadLine());
+                if (num > _methods.Length)
+                    throw new ArgumentOutOfRangeException();
 
-                    return _methods[num - 1];
-                }
-                catch
-                {
-                    Console.WriteLine("Please try again.");
-                }
+                return _methods[num - 1];
+            }
+            catch(Exception)
+            {
+                Console.WriteLine("Please try again.");
+                throw;
             }
         }
     }

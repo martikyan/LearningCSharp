@@ -27,6 +27,12 @@ namespace LearningCSharp.Lessons
         {
             Console.WriteLine(((string)null).ToString());
         }
+        
+        [Demo]
+        public static void NullString3()
+        {
+            Console.WriteLine(((string)null));
+        }
 
         [Demo]
         public static void StringFunctions()
