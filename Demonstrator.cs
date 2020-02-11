@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using System.Threading;
 
 namespace LearningCSharp
 {
@@ -35,11 +34,11 @@ namespace LearningCSharp
             }
 
             Console.WriteLine($"\n***** Done: {methodInfo.Name} ******\n");
-            
+
             var quit = Console.ReadKey();
             if (quit.Key == ConsoleKey.Q)
             {
-                System.Environment.Exit(0);
+                Environment.Exit(0);
             }
             else
             {

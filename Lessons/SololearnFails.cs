@@ -10,7 +10,7 @@ namespace LearningCSharp.Lessons
         {
             int[] nums = { 1, 2, 3 };
             int s = nums.Aggregate(0, (sum, n) => n * n + sum);
-            Console.Out.Write(s);
+            Console.Write(s);
         }
 
         [Demo]
@@ -27,11 +27,11 @@ namespace LearningCSharp.Lessons
         {
             Console.WriteLine(((string)null).ToString());
         }
-        
+
         [Demo]
         public static void NullString3()
         {
-            Console.WriteLine(((string)null));
+            Console.WriteLine((string)null);
         }
 
         [Demo]

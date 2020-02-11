@@ -30,7 +30,7 @@ namespace LearningCSharp
 
                 return _methods[num - 1];
             }
-            catch(Exception)
+            catch
             {
                 Console.WriteLine("Please try again.");
                 throw;

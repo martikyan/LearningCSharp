@@ -25,15 +25,29 @@ namespace LearningCSharp.Lessons
         }
 
         [Demo]
-        public static void RoundingNumbers()
+        public static void CastingToInt()
         {
-            Console.WriteLine("Rounding i. e. casting to int!");
+            Console.WriteLine("Casting floating numbers to int.");
 
             Console.WriteLine($"Rounded 1.1 = {(int)1.1}");
             Console.WriteLine($"Rounded 1.9 = {(int)1.9}");
             Console.WriteLine($"Rounded -1.1 = {(int)-1.1}");
             Console.WriteLine($"Rounded -1.9 = {(int)-1.9}");
+
             Console.WriteLine("Always rounding to zero.");
+        }
+
+        [Demo]
+        public static void MathRounding()
+        {
+            Console.WriteLine("Rounding floating numbers using Math.");
+
+            Console.WriteLine($"Math.Rounded 1.5 = {Math.Round(1.5)}");
+            Console.WriteLine($"Math.Rounded 2.5 = {Math.Round(2.5)}");
+            Console.WriteLine($"Math.Rounded 1.5 = {Math.Round(1.5, MidpointRounding.ToEven)}");
+            Console.WriteLine($"Math.Rounded 2.5 = {Math.Round(2.5, MidpointRounding.ToEven)}");
+
+            Console.WriteLine($"It defaults rounding to {nameof(MidpointRounding)}.{nameof(MidpointRounding.ToEven)}");
         }
     }
 }

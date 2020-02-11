@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Hosting;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Hosting;
 
 namespace LearningCSharp
 {
@@ -13,7 +12,7 @@ namespace LearningCSharp
             var token = tokenSource.Token;
             Demonstrator.RunDemonstrations();
             var builder = new HostBuilder();
-            builder.ConfigureAppConfiguration(configurationBuilder => {});
+            builder.ConfigureAppConfiguration(configurationBuilder => { });
 
             await builder.RunConsoleAsync(token);
         }

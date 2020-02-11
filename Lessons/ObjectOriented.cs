@@ -25,7 +25,6 @@ namespace LearningCSharp.Lessons
         public override void MethodWithDefaultValue(int defaultValue = 7)
         {
             Console.WriteLine($"Call Method in ChildDefault class, and default value is {defaultValue}");
-
         }
     }
 }
