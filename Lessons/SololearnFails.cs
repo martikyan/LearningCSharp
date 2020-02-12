@@ -10,7 +10,7 @@ namespace LearningCSharp.Lessons
         {
             int[] nums = { 1, 2, 3 };
             int s = nums.Aggregate(0, (sum, n) => n * n + sum);
-            Console.Write(s);
+            Console.Out.Write(s);
         }
 
         [Demo]
@@ -32,6 +32,18 @@ namespace LearningCSharp.Lessons
         public static void NullString3()
         {
             Console.WriteLine((string)null);
+        }
+
+        [Demo]
+        public static void StringEquals()
+        {
+            var a = "a";
+            var aa = "aa";
+            var aa2 = a + a;
+
+            Console.WriteLine(aa == aa2);
+            Console.WriteLine((object)aa == (object)aa2);
+            Console.WriteLine(string.ReferenceEquals(aa, aa2));
         }
 
         [Demo]
