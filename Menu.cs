@@ -15,8 +15,8 @@ namespace LearningCSharp
 
         public void ShowMenu()
         {
-            var groupedMethods = _methods.GroupBy(m => m.DeclaringType.Name);
             var iteration = 0;
+            var groupedMethods = _methods.GroupBy(m => m.DeclaringType.Name);
             foreach (var group in groupedMethods)
             {
                 Console.WriteLine(group.Key);
