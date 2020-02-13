@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace LearningCSharp
 {
@@ -26,7 +27,7 @@ namespace LearningCSharp
             Console.WriteLine($"***** Name: {methodInfo.Name} ******\n");
             try
             {
-                methodInfo.Invoke(null, null);
+                InvokeDemoMethod(methodInfo);
             }
             catch (Exception e)
             {
@@ -43,6 +44,15 @@ namespace LearningCSharp
             else
             {
                 RunDemonstrations();
+            }
+        }
+
+        private static void InvokeDemoMethod(MethodInfo methodInfo)
+        {
+            var taskObj = methodInfo.Invoke(null, null);
+            if (taskObj != null && taskObj is Task)
+            {
+                ((Task)taskObj).Wait();
             }
         }
     }
