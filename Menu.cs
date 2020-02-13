@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Reflection;
 
 namespace LearningCSharp
@@ -14,9 +15,18 @@ namespace LearningCSharp
 
         public void ShowMenu()
         {
-            for (int i = 0; i < _methods.Length; i++)
+            var groupedMethods = _methods.GroupBy(m => m.DeclaringType.Name);
+            var iteration = 0;
+            foreach (var group in groupedMethods)
             {
-                Console.WriteLine($"{i + 1}. {_methods[i].Name}");
+                Console.WriteLine(group.Key);
+                foreach (var method in group)
+                {
+                    Console.WriteLine($"\t{iteration + 1}. {method.Name}");
+                    iteration++;
+                }
+
+                Console.WriteLine();
             }
         }
 
