@@ -42,10 +42,12 @@ namespace LearningCSharp.Lessons
         {
             Console.WriteLine("Rounding floating numbers using Math.");
 
-            Console.WriteLine($"Math.Rounded 1.5 = {Math.Round(1.5)}");
-            Console.WriteLine($"Math.Rounded 2.5 = {Math.Round(2.5)}");
-            Console.WriteLine($"Math.Rounded 1.5 = {Math.Round(1.5, MidpointRounding.ToEven)}");
-            Console.WriteLine($"Math.Rounded 2.5 = {Math.Round(2.5, MidpointRounding.ToEven)}");
+            Console.WriteLine($"Math.Round(1.5) = {Math.Round(1.5)}");
+            Console.WriteLine($"Math.Round(2.5) = {Math.Round(2.5)}");
+            Console.WriteLine($"Math.Round(1.5, MidpointRounding.ToEven) = {Math.Round(1.5, MidpointRounding.ToEven)}");
+            Console.WriteLine($"Math.Round(1.5, MidpointRounding.ToEven) = {Math.Round(1.5, MidpointRounding.ToEven)}");
+            Console.WriteLine($"Math.Round(2.5, MidpointRounding.AwayFromZero) = {Math.Round(2.5, MidpointRounding.AwayFromZero)}");
+            Console.WriteLine($"Math.Round(2.5, MidpointRounding.AwayFromZero) = {Math.Round(2.5, MidpointRounding.AwayFromZero)}");
 
             Console.WriteLine($"It defaults rounding to {nameof(MidpointRounding)}.{nameof(MidpointRounding.ToEven)}");
         }
